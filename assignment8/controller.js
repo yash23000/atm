@@ -23,7 +23,7 @@ exports.createProductData = async(req,res) => {
     }
 }
  
-//get all products
+
 exports.getProductData = async(req,res) => {
     try{
         let productList = await productModel.find();
@@ -33,7 +33,7 @@ exports.getProductData = async(req,res) => {
     }
 }
 
-//get products by category
+
 exports.productByCategory = async(req,res) => {
     try{
         let proList = await productModel.find({categoryId :req.body.categoryId});
@@ -43,7 +43,7 @@ exports.productByCategory = async(req,res) => {
     }
 }
 
-//get products by color and size
+
 exports.productByColorSize = async(req,res) => {
     try{
         let list = await productModel.find({$and:[{color:req.body.color},{size:req.body.size}]});
@@ -53,7 +53,7 @@ exports.productByColorSize = async(req,res) => {
     }
 }
 
-//delete products
+
 exports.deleteProducts = async(req,res) => {
     try{
         
@@ -65,8 +65,6 @@ exports.deleteProducts = async(req,res) => {
 }
 
 
-
-//top 5 prices
 exports.topFivePrices = async(req,res) => {
     try{
         
@@ -90,8 +88,6 @@ exports.topFivePrices = async(req,res) => {
         res.send({"Unable to fetch the data":err.message});
     }
 }
-
-//Nth highest price
 exports.nthHighestPrice = async(req,res) => {
     try{
         let n = req.params.nthprice;
