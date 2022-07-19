@@ -96,7 +96,7 @@ exports.nthHighestPrice = async(req,res) => {
     try{
         let n = req.params.nthprice;
         console.log(n);
-        //let nthHighest = await productModel.find({}).sort({price: -1}).skip(n-1).limit(1);
+       
         let nthHighest = await productModel.aggregate([
            { $group: {
                 _id: "$price",
